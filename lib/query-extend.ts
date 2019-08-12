@@ -10,6 +10,14 @@ const ext = {};
             }
         }
     }
-});
+})
+
+ext['update'] = function(this: any, style: any) {
+    for (let i = 0; i < this.length; i++) {
+        if (this[i].layout) {
+            this[i].updateLayout(style)
+        }
+    }
+};
 
 (query as any).extend(ext)

@@ -602,7 +602,6 @@
             {
                 window.Int32Array = Array;
             }
-            //# sourceMappingURL=polyfill.es.js.map
 
             var isMobile = createCommonjsModule(function (module) {
             (function(global) {
@@ -1045,7 +1044,6 @@
                  */
                 ROUND_PIXELS: false,
             };
-            //# sourceMappingURL=settings.es.js.map
 
             var eventemitter3 = createCommonjsModule(function (module) {
 
@@ -3732,7 +3730,6 @@
                 MEDIUM: 'mediump',
                 HIGH: 'highp',
             };
-            //# sourceMappingURL=constants.es.js.map
 
             /*!
              * @pixi/utils - v5.1.1
@@ -4573,7 +4570,6 @@
 
                 warnings[message] = true;
             }
-            //# sourceMappingURL=utils.es.js.map
 
             /*!
              * @pixi/math - v5.1.0
@@ -6669,7 +6665,6 @@
 
                 return false;
             };
-            //# sourceMappingURL=math.es.js.map
 
             /*!
              * @pixi/display - v5.1.1
@@ -8465,7 +8460,6 @@
 
             // performance increase to avoid using call.. (10x faster)
             Container.prototype.containerUpdateTransform = Container.prototype.updateTransform;
-            //# sourceMappingURL=display.es.js.map
 
             /*!
              * @pixi/accessibility - v5.1.1
@@ -9098,7 +9092,6 @@
                 this.children = null;
                 this.renderer = null;
             };
-            //# sourceMappingURL=accessibility.es.js.map
 
             /*!
              * @pixi/runner - v5.1.1
@@ -9311,7 +9304,6 @@
              * @see PIXI.Runner#emit
              */
             Runner.prototype.run = Runner.prototype.emit;
-            //# sourceMappingURL=runner.es.js.map
 
             /*!
              * @pixi/ticker - v5.1.1
@@ -10264,7 +10256,6 @@
                     oldTicker.destroy();
                 }
             };
-            //# sourceMappingURL=ticker.es.js.map
 
             /*!
              * @pixi/core - v5.1.1
@@ -22522,7 +22513,6 @@
             // Setup the default BatchRenderer plugin, this is what
             // we'll actually export at the root level
             var BatchRenderer = BatchPluginFactory.create();
-            //# sourceMappingURL=core.es.js.map
 
             /*!
              * @pixi/extract - v5.1.1
@@ -22794,7 +22784,6 @@
                     }
                 }
             };
-            //# sourceMappingURL=extract.es.js.map
 
             /*!
              * @pixi/interaction - v5.1.1
@@ -25169,7 +25158,6 @@
 
                 return InteractionManager;
             }(eventemitter3));
-            //# sourceMappingURL=interaction.es.js.map
 
             /*!
              * @pixi/graphics - v5.1.1
@@ -28625,7 +28613,6 @@
              * @member {PIXI.Point}
              */
             Graphics._TEMP_POINT = new Point();
-            //# sourceMappingURL=graphics.es.js.map
 
             /*!
              * @pixi/sprite - v5.1.1
@@ -29284,7 +29271,6 @@
 
                 return Sprite;
             }(Container));
-            //# sourceMappingURL=sprite.es.js.map
 
             /*!
              * @pixi/text - v5.1.1
@@ -31552,7 +31538,6 @@
 
                 return Text;
             }(Sprite));
-            //# sourceMappingURL=text.es.js.map
 
             /*!
              * @pixi/prepare - v5.1.1
@@ -32197,7 +32182,6 @@
 
                 return false;
             }
-            //# sourceMappingURL=prepare.es.js.map
 
             /*!
              * @pixi/app - v5.1.1
@@ -32423,7 +32407,6 @@
             };
 
             Application.registerPlugin(ResizePlugin);
-            //# sourceMappingURL=app.es.js.map
 
             var parseUri = function parseURI (str, opts) {
               opts = opts || {};
@@ -34952,7 +34935,6 @@
 
               return Loader;
             };
-            //# sourceMappingURL=resource-loader.esm.js.map
 
             /*!
              * @pixi/loaders - v5.1.1
@@ -35254,7 +35236,6 @@
              * @memberof PIXI
              */
             var LoaderResource = Resource$1;
-            //# sourceMappingURL=loaders.es.js.map
 
             /*!
              * @pixi/particles - v5.1.1
@@ -35939,7 +35920,6 @@
 
                 return ParticleRenderer;
             }(ObjectRenderer));
-            //# sourceMappingURL=particles.es.js.map
 
             /*!
              * @pixi/spritesheet - v5.1.1
@@ -36348,7 +36328,6 @@
 
                 return url.resolve(resource.url.replace(baseUrl, ''), resource.data.meta.image);
             };
-            //# sourceMappingURL=spritesheet.es.js.map
 
             /*!
              * @pixi/sprite-tiling - v5.1.1
@@ -36493,7 +36472,6 @@
 
                 return TilingSpriteRenderer;
             }(ObjectRenderer));
-            //# sourceMappingURL=sprite-tiling.es.js.map
 
             /*!
              * @pixi/text-bitmap - v5.1.1
@@ -37319,7 +37297,6 @@
                     }
                 }
             };
-            //# sourceMappingURL=text-bitmap.es.js.map
 
             /*!
              * @pixi/filter-alpha - v5.1.1
@@ -37328,7 +37305,6 @@
              * @pixi/filter-alpha is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=filter-alpha.es.js.map
 
             /*!
              * @pixi/filter-blur - v5.1.1
@@ -37337,7 +37313,6 @@
              * @pixi/filter-blur is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=filter-blur.es.js.map
 
             /*!
              * @pixi/filter-color-matrix - v5.1.1
@@ -37936,7 +37911,6 @@
 
             // Americanized alias
             ColorMatrixFilter.prototype.grayscale = ColorMatrixFilter.prototype.greyscale;
-            //# sourceMappingURL=filter-color-matrix.es.js.map
 
             /*!
              * @pixi/filter-displacement - v5.1.1
@@ -37945,7 +37919,6 @@
              * @pixi/filter-displacement is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=filter-displacement.es.js.map
 
             /*!
              * @pixi/filter-fxaa - v5.1.1
@@ -37954,7 +37927,6 @@
              * @pixi/filter-fxaa is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=filter-fxaa.es.js.map
 
             /*!
              * @pixi/filter-noise - v5.1.1
@@ -37963,7 +37935,6 @@
              * @pixi/filter-noise is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=filter-noise.es.js.map
 
             /*!
              * @pixi/mixin-cache-as-bitmap - v5.1.1
@@ -38389,7 +38360,6 @@
                 this.cacheAsBitmap = false;
                 this.destroy(options);
             };
-            //# sourceMappingURL=mixin-cache-as-bitmap.es.js.map
 
             /*!
              * @pixi/mixin-get-child-by-name - v5.1.1
@@ -38427,7 +38397,6 @@
 
                 return null;
             };
-            //# sourceMappingURL=mixin-get-child-by-name.es.js.map
 
             /*!
              * @pixi/mixin-get-global-position - v5.1.1
@@ -38465,7 +38434,6 @@
 
                 return point;
             };
-            //# sourceMappingURL=mixin-get-global-position.es.js.map
 
             /*!
              * @pixi/mesh - v5.1.1
@@ -38477,7 +38445,6 @@
 
             var tempPoint$2 = new Point();
             var tempPolygon = new Polygon();
-            //# sourceMappingURL=mesh.es.js.map
 
             /*!
              * @pixi/mesh-extras - v5.1.1
@@ -38486,7 +38453,6 @@
              * @pixi/mesh-extras is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=mesh-extras.es.js.map
 
             /*!
              * @pixi/sprite-animated - v5.1.1
@@ -38495,7 +38461,6 @@
              * @pixi/sprite-animated is licensed under the MIT License.
              * http://www.opensource.org/licenses/mit-license
              */
-            //# sourceMappingURL=sprite-animated.es.js.map
 
             /*!
              * pixi.js - v5.1.1
@@ -38519,7 +38484,122 @@
 
             Application.registerPlugin(TickerPlugin);
             Application.registerPlugin(AppLoaderPlugin);
-            //# sourceMappingURL=pixi.es.js.map
+
+            function show() {
+                for (var i = 0; i < this.length; i++) {
+                    this[i].visible = true;
+                }
+                return this;
+            }
+            function hide() {
+                for (var i = 0; i < this.length; i++) {
+                    this[i].visible = false;
+                }
+                return this;
+            }
+            function get(index) {
+                if (index) {
+                    return this[index];
+                }
+                else {
+                    var pure = [];
+                    for (var i = 0; i < this.length; i++) {
+                        pure.push(this[i]);
+                    }
+                    return pure;
+                }
+            }
+            function width(width) {
+                if (typeof width === 'number') {
+                    for (var i = 0; i < this.length; i++) {
+                        this[i].width = width;
+                    }
+                }
+                else {
+                    return this[0].width;
+                }
+            }
+            function height(height) {
+                if (typeof height === 'number') {
+                    for (var i = 0; i < this.length; i++) {
+                        this[i].height = height;
+                    }
+                }
+                else {
+                    return this[0].height;
+                }
+            }
+            function position() {
+                return {
+                    x: this[0] ? this[0].x : 0,
+                    y: this[0] ? this[0].y : 0
+                };
+            }
+            function children() {
+                return this[0] ? this[0].children : [];
+            }
+            function count() {
+                return this.length;
+            }
+            function first() {
+                return this[0];
+            }
+            function last() {
+                return this[this.length - 1];
+            }
+            function each(closure) {
+                for (var i = 0; i < this.length; i++) {
+                    closure(this[i], i);
+                }
+            }
+            function empty() {
+                for (var i = 0; i < this.length; i++) {
+                    this[i].removeChildren();
+                }
+            }
+            function parent() {
+                return this[0] ? this[0].parent : null;
+            }
+            function text() {
+                console.log('text() not support yet');
+            }
+            function css() {
+                console.log('css() not support yet');
+            }
+            function find() {
+                console.log('find() not support yet');
+            }
+            function offset() {
+                console.log('offset() not support yet');
+            }
+            function prev() {
+                console.log('prev() not support yet');
+            }
+            function next() {
+                console.log('next() not support yet');
+            }
+
+            var instance = /*#__PURE__*/Object.freeze({
+                show: show,
+                hide: hide,
+                get: get,
+                width: width,
+                height: height,
+                position: position,
+                children: children,
+                count: count,
+                first: first,
+                last: last,
+                each: each,
+                empty: empty,
+                parent: parent,
+                text: text,
+                css: css,
+                find: find,
+                offset: offset,
+                prev: prev,
+                next: next
+            });
 
             var fns = [];
             function use(fn) {
@@ -38543,7 +38623,7 @@
             function sprite(target) {
                 return typeof target._anchor !== 'undefined' && typeof target._font === 'undefined';
             }
-            function text(target) {
+            function text$1(target) {
                 return typeof target._font === 'string';
             }
             function container(target) {
@@ -38552,7 +38632,7 @@
 
             var is = /*#__PURE__*/Object.freeze({
                 sprite: sprite,
-                text: text,
+                text: text$1,
                 container: container
             });
 
@@ -38566,11 +38646,11 @@
                         case 'string':
                             selector = any.trim();
                             if (['container', 'sprite', 'text'].includes(selector)) {
-                                com.push.apply(com, getTypedItem(selector, get(stage)));
+                                com.push.apply(com, getTypedItem(selector, get$1(stage)));
                             }
                             else {
                                 var parsed = parseStringQuery(selector);
-                                parsed.map(function (item) { return com.push.apply(com, findBy(item.key, item.value, get(stage))); });
+                                parsed.map(function (item) { return com.push.apply(com, findBy(item.key, item.value, get$1(stage))); });
                             }
                             break;
                         case 'object':
@@ -38611,7 +38691,7 @@
                 var _a = string.match(REG_PROP), _ = _a[0], key = _a[1], value = _a[2];
                 return [key, value];
             }
-            function get(object) {
+            function get$1(object) {
                 var result = [];
                 var walk = function (object) {
                     if (object.children.length > 0) {
@@ -39091,33 +39171,8 @@
             query.extend = extend;
             query.extend([
                 queryEvent$1,
+                instance,
             ]);
-            //# sourceMappingURL=query.es.js.map
-
-            /*! *****************************************************************************
-            Copyright (c) Microsoft Corporation. All rights reserved.
-            Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-            this file except in compliance with the License. You may obtain a copy of the
-            License at http://www.apache.org/licenses/LICENSE-2.0
-
-            THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-            KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-            WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-            MERCHANTABLITY OR NON-INFRINGEMENT.
-
-            See the Apache Version 2.0 License for specific language governing permissions
-            and limitations under the License.
-            ***************************************************************************** */
-
-            function __rest(s, e) {
-                var t = {};
-                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-                    t[p] = s[p];
-                if (s != null && typeof Object.getOwnPropertySymbols === "function")
-                    for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-                        t[p[i]] = s[p[i]];
-                return t;
-            }
 
             function eventify(target) {
                 target.callbacks = {};
@@ -39352,7 +39407,7 @@
             and limitations under the License.
             ***************************************************************************** */
 
-            function __rest$1(s, e) {
+            function __rest(s, e) {
                 var t = {};
                 for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
                     t[p] = s[p];
@@ -39411,6 +39466,8 @@
             function overflow(co) {
                 co.on('update', function (_a) {
                     var instance = _a.instance, style = _a.style;
+                    if (!getValue(instance, 'layout.newStyle.overflow'))
+                        return;
                     var _b = style.borderRadius, borderRadius = _b === void 0 ? 0 : _b, overflow = style.overflow;
                     var coverRect = getCoverRect(instance);
                     if (overflow && coverRect) {
@@ -39528,20 +39585,51 @@
                     }
                     return scale;
                 }
-                function actualSize(target) {
-                    var width = target.width, height = target.height;
-                    if (target.parent) {
-                        var _a = actualScale(target.parent), scaleX = _a.x, scaleY = _a.y;
+                function getPixiContainerSize(container) {
+                    if (container.width > 0 && container.height > 0) {
                         return {
-                            width: ~~(width * scaleX),
-                            height: ~~(height * scaleY),
+                            width: container.width,
+                            height: container.height,
                         };
+                    }
+                    else if (container.parent) {
+                        if (container.parent instanceof Container) {
+                            return getPixiContainerSize(container.parent);
+                        }
+                        else {
+                            var _a = container.parent, width = _a.width, height = _a.height;
+                            return {
+                                width: width,
+                                height: height,
+                            };
+                        }
                     }
                     else {
                         return {
                             width: window.innerWidth,
                             height: window.innerHeight,
                         };
+                    }
+                }
+                function actualSize(target) {
+                    if (target instanceof Container) {
+                        return getPixiContainerSize(target);
+                    }
+                    else {
+                        var width = target.width, height = target.height;
+                        if (target.parent) {
+                            var _a = actualScale(target.parent), scaleX = _a.x, scaleY = _a.y;
+                            return {
+                                width: ~~(width * scaleX),
+                                height: ~~(height * scaleY),
+                            };
+                        }
+                        else {
+                            return {
+                                width: width,
+                                height: height,
+                            };
+                        }
                     }
                 }
                 function getRatio(target) {
@@ -39650,12 +39738,12 @@
                     }
                     return result;
                 }
-                function elementPos(target, style, parentSize) {
+                function elementPos(targetSize, style, parentSize) {
                     var _a = style.rotation, _rotation = _a === void 0 ? 0 : _a;
                     var x = _getPos(style, ['x', 'left', 'centerX', 'right']);
                     var y = _getPos(style, ['y', 'top', 'centerY', 'bottom']);
                     var parentWidth = parentSize.width, parentHeight = parentSize.height;
-                    var targetWidth = target.width, targetHeight = target.height;
+                    var targetWidth = targetSize.width, targetHeight = targetSize.height;
                     return {
                         x: pos(parentWidth, targetWidth, x),
                         y: pos(parentHeight, targetHeight, y),
@@ -39700,6 +39788,32 @@
                         rotation: rlayout.rotation,
                     };
                 }
+                // 反向同步布局信息
+                function pixilayout2rlayout(container, anchor, pixilayout) {
+                    var containerWidth = container.width, containerHeight = container.height, _a = container.scale, scaleX = _a.x, scaleY = _a.y, parent = container.element;
+                    var sw = pixilayout.width, sh = pixilayout.height, sx = pixilayout.x, sy = pixilayout.y;
+                    sw *= scaleX;
+                    sh *= scaleY;
+                    sx *= scaleX;
+                    sy *= scaleY;
+                    if (parent['anchor']) {
+                        sx += containerWidth * parent['anchor'].x;
+                        sy += containerHeight * parent['anchor'].y;
+                    }
+                    else if (parent['pivot']) {
+                        sx += containerWidth * parent['pivot'].x;
+                        sy += containerHeight * parent['pivot'].y;
+                    }
+                    sx -= sw * anchor.x;
+                    sy -= sh * anchor.y;
+                    return {
+                        width: Math.round(sw),
+                        height: Math.round(sh),
+                        x: Math.round(sx),
+                        y: Math.round(sy),
+                        rotation: pixilayout.rotation,
+                    };
+                }
                 return {
                     rotation: rotation,
                     length: length,
@@ -39711,6 +39825,7 @@
                     elementPos: elementPos,
                     container: container,
                     rlayout2pixilayout: rlayout2pixilayout,
+                    pixilayout2rlayout: pixilayout2rlayout,
                 };
             }
 
@@ -39723,7 +39838,7 @@
                         circle(layout);
                         break;
                     case 'text':
-                        text$1(layout);
+                        text$2(layout);
                         break;
                     case 'sprite':
                     case 'container':
@@ -39732,35 +39847,40 @@
                         break;
                 }
             }
+            var layoutHasChanged = function (layout) {
+                return layout.styleHasChanged(['width', 'height', 'borderWidth', 'borderColor', 'backgroundColor']);
+            };
             function rect(layout) {
-                var style = getValue(layout, 'style') || {};
-                var _a = style.backgroundColor, backgroundColor = _a === void 0 ? 0xFFFFFF : _a, _b = style.borderWidth, borderWidth = _b === void 0 ? 0 : _b, _c = style.borderColor, borderColor = _c === void 0 ? 0x000000 : _c, _d = style.borderRadius, borderRadius = _d === void 0 ? 0 : _d;
                 var pixilayout = layout.pixilayout, target = layout.target, transform = layout.transform;
                 var x = pixilayout.x, y = pixilayout.y, width = pixilayout.width, height = pixilayout.height, rotation = pixilayout.rotation;
-                var _borderWidth = transform.length(width, borderWidth);
-                var _borderRadius = transform.length(width, borderRadius);
-                var _width = width - _borderWidth;
-                var _height = height - _borderWidth;
-                var _e = target.pivot, pivotX = _e.x, pivotY = _e.y;
-                // 清除重新绘制
-                target.clear();
-                // 填充颜色
-                target.beginFill(backgroundColor);
-                // 绘制边框
-                target.lineStyle(_borderWidth, borderColor, 1);
-                // 根据不同的 radius 绘制对应的形状
-                if (_borderRadius >= width / 2) {
-                    // 椭圆的定位锚点在圆心
-                    target.drawEllipse(0, 0, _width / 2, _height / 2);
+                if (layoutHasChanged(layout)) {
+                    var style = getValue(layout, 'style') || {};
+                    var _a = style.backgroundColor, backgroundColor = _a === void 0 ? 0xFFFFFF : _a, _b = style.borderWidth, borderWidth = _b === void 0 ? 0 : _b, _c = style.borderColor, borderColor = _c === void 0 ? 0x000000 : _c, _d = style.borderRadius, borderRadius = _d === void 0 ? 0 : _d;
+                    var _borderWidth = transform.length(width, borderWidth);
+                    var _borderRadius = transform.length(width, borderRadius);
+                    var _width = width - _borderWidth;
+                    var _height = height - _borderWidth;
+                    var _e = target.pivot, pivotX = _e.x, pivotY = _e.y;
+                    // 清除重新绘制
+                    target.clear();
+                    // 填充颜色
+                    target.beginFill(backgroundColor);
+                    // 绘制边框
+                    target.lineStyle(_borderWidth, borderColor, 1);
+                    // 根据不同的 radius 绘制对应的形状
+                    if (_borderRadius >= width / 2) {
+                        // 椭圆的定位锚点在圆心
+                        target.drawEllipse(0, 0, _width / 2, _height / 2);
+                    }
+                    else if (_borderRadius > 0) {
+                        // 圆角矩形与矩形的定位锚点不在中心
+                        target.drawRoundedRect(-_width * pivotX, -_height * pivotY, _width, _height, _borderRadius);
+                    }
+                    else {
+                        target.drawRect(-_width * pivotX, -_height * pivotY, _width, _height);
+                    }
+                    target.endFill();
                 }
-                else if (_borderRadius > 0) {
-                    // 圆角矩形与矩形的定位锚点不在中心
-                    target.drawRoundedRect(-_width * pivotX, -_height * pivotY, _width, _height, _borderRadius);
-                }
-                else {
-                    target.drawRect(-_width * pivotX, -_height * pivotY, _width, _height);
-                }
-                target.endFill();
                 // 设置位置
                 if (target.x !== x)
                     target.x = x;
@@ -39770,28 +39890,30 @@
                     target.rotation = rotation;
             }
             function circle(layout) {
-                var style = getValue(layout, 'style') || {};
-                var _a = style.backgroundColor, backgroundColor = _a === void 0 ? 0xFFFFFF : _a, _b = style.borderWidth, borderWidth = _b === void 0 ? 0 : _b, _c = style.borderColor, borderColor = _c === void 0 ? 0x000000 : _c;
                 var pixilayout = layout.pixilayout, target = layout.target, transform = layout.transform;
                 var x = pixilayout.x, y = pixilayout.y, width = pixilayout.width, height = pixilayout.height;
-                var _borderWidth = transform.length(width, borderWidth);
-                var _width = width - _borderWidth;
-                var _height = height - _borderWidth;
-                // 清除重新绘制
-                target.clear();
-                // 填充颜色
-                target.beginFill(backgroundColor);
-                // 绘制边框
-                target.lineStyle(_borderWidth, borderColor, 1);
-                target.drawEllipse(0, 0, _width / 2, _height / 2);
-                target.endFill();
+                if (layoutHasChanged(layout)) {
+                    var style = getValue(layout, 'style') || {};
+                    var _a = style.backgroundColor, backgroundColor = _a === void 0 ? 0xFFFFFF : _a, _b = style.borderWidth, borderWidth = _b === void 0 ? 0 : _b, _c = style.borderColor, borderColor = _c === void 0 ? 0x000000 : _c;
+                    var _borderWidth = transform.length(width, borderWidth);
+                    var _width = width - _borderWidth;
+                    var _height = height - _borderWidth;
+                    // 清除重新绘制
+                    target.clear();
+                    // 填充颜色
+                    target.beginFill(backgroundColor);
+                    // 绘制边框
+                    target.lineStyle(_borderWidth, borderColor, 1);
+                    target.drawEllipse(0, 0, _width / 2, _height / 2);
+                    target.endFill();
+                }
                 // 设置位置
                 if (target.x !== x)
                     target.x = x;
                 if (target.y !== y)
                     target.y = y;
             }
-            function text$1(layout) {
+            function text$2(layout) {
                 var target = layout.target, _a = layout.pixilayout, x = _a.x, y = _a.y, width = _a.width, height = _a.height, rotation = _a.rotation, style = layout.style;
                 var _b = style.content, content = _b === void 0 ? '' : _b;
                 target.style = new TextStyle(layout.textStyle);
@@ -39834,7 +39956,7 @@
                 Layout.prototype._fixTextSize = function (size) {
                     var _a = this, transform = _a.transform, container = _a.container;
                     var cw = container.width, ch = container.height;
-                    var _b = this.style || {}, _c = _b.content, content = _c === void 0 ? '' : _c, _d = _b.fontSize, fontSize = _d === void 0 ? 20 : _d, _e = _b.lineHeight, lineHeight = _e === void 0 ? fontSize * 1.5 : _e, _f = _b.color, color = _f === void 0 ? 0x000000 : _f, rest = __rest$1(_b, ["content", "fontSize", "lineHeight", "color"]);
+                    var _b = this.style || {}, _c = _b.content, content = _c === void 0 ? '' : _c, _d = _b.fontSize, fontSize = _d === void 0 ? 20 : _d, _e = _b.lineHeight, lineHeight = _e === void 0 ? fontSize * 1.5 : _e, _f = _b.color, color = _f === void 0 ? 0x000000 : _f, rest = __rest(_b, ["content", "fontSize", "lineHeight", "color"]);
                     var textStyle = new TextStyle(extend$1({
                         fontSize: transform.length(cw, fontSize),
                         breakWords: true,
@@ -39850,10 +39972,35 @@
                         height: copyText.height,
                     };
                 };
+                Layout.prototype.styleHasChanged = function (changeKeyArr) {
+                    var flag = false;
+                    if (this.newStyle) {
+                        for (var i = 0; i < changeKeyArr.length; i++) {
+                            var key = changeKeyArr[i];
+                            if (this.newStyle[key]) {
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                    else {
+                        flag = true;
+                    }
+                    return flag;
+                };
                 Layout.prototype._getRlayout = function () {
                     var _a = this, target = _a.target, style = _a.style, container = _a.container;
                     // 尺寸
-                    var size = this.transform.elementSize(target, style, container);
+                    var size;
+                    if (!this.rlayout || this.styleHasChanged(['width', 'height'])) {
+                        size = this.transform.elementSize(target, style, container);
+                    }
+                    else if (this.rlayout) {
+                        size = {
+                            width: this.rlayout.width,
+                            height: this.rlayout.height,
+                        };
+                    }
                     if (target['type'] === 'text') {
                         // text 标签特殊处理
                         size = this._fixTextSize(size);
@@ -39869,25 +40016,28 @@
                     this.rlayout = this._getRlayout();
                     this.pixilayout = this.transform.rlayout2pixilayout(container, anchor, this.rlayout);
                     // 设置布局
-                    var action = target['anchor'] ? 'anchor' : 'pivot';
-                    target[action].set(anchor.x, anchor.y);
-                    patch(this);
-                    this.setScale(scale);
-                    if (target['type'] === 'container') {
-                        this.realScale = {
-                            x: this.rlayout.width / 500,
-                            y: this.rlayout.height / 500,
-                        };
+                    if (this.styleHasChanged(['anchor'])) {
+                        var action = target['anchor'] ? 'anchor' : 'pivot';
+                        target[action].set(anchor.x, anchor.y);
                     }
-                    else {
-                        this.realScale = this.transform.actualScale(target);
+                    patch(this);
+                    if (scale !== 1)
+                        this.setScale(scale);
+                    if (this.styleHasChanged(['width', 'height'])) {
+                        if (target['type'] === 'container') {
+                            this.realScale = {
+                                x: this.rlayout.width / 500,
+                                y: this.rlayout.height / 500,
+                            };
+                        }
+                        else {
+                            this.realScale = this.transform.actualScale(target);
+                        }
                     }
                 };
                 Layout.prototype.setScale = function (scale) {
-                    if (scale !== 1) {
-                        var _a = this, target = _a.target, initScale = _a.initScale;
-                        target.scale.set(initScale.x * scale, initScale.y * scale);
-                    }
+                    var _a = this, target = _a.target, initScale = _a.initScale;
+                    target.scale.set(initScale.x * scale, initScale.y * scale);
                 };
                 Layout.prototype._inheritStyle = function () {
                     var _a = this, container = _a.container, style = _a.style, target = _a.target;
@@ -39960,14 +40110,14 @@
                             }
                         });
                     }
-                    else if (this.target.children) {
+                    else if (this.target.children.length) {
                         this.forceUpdate();
                     }
                 };
                 Layout.prototype.appendTo = function (container) {
                     if (container && container.addChild) {
-                        container.addChild(this.target);
                         this.render(container);
+                        container.addChild(this.target);
                     }
                     else {
                         console.error("the container is not exsit!");
@@ -40044,11 +40194,28 @@
                     }
                 };
                 // 更新布局
+                Layout.prototype.hasLayoutUpdatedByOutSet = function () {
+                    var flag = false;
+                    if (this.newStyle) {
+                        var _a = this, target = _a.target, pixilayout = _a.pixilayout;
+                        var attrs = ['width', 'height', 'x', 'y', 'rotation'];
+                        for (var i = 0; i < attrs.length; i++) {
+                            var key = attrs[i];
+                            if (target[key] !== pixilayout[key]) {
+                                flag = true;
+                            }
+                        }
+                    }
+                    return flag;
+                };
                 Layout.prototype.update = function (newStyle) {
-                    if (newStyle === void 0) { newStyle = {}; }
                     var _a = this, target = _a.target, config = _a.config;
                     config.Component.emit('beforeUpdate', newStyle);
-                    this.style = extend$1(this.style, newStyle);
+                    if (this.hasLayoutUpdatedByOutSet()) {
+                        this.updateStyle();
+                    }
+                    this.newStyle = newStyle;
+                    this.style = extend$1(this.style, newStyle || {});
                     if (this.container) {
                         this._setLayout();
                         var children = getValue(target, 'children');
@@ -40079,6 +40246,19 @@
                         });
                     }
                 };
+                Layout.prototype.updateStyle = function () {
+                    var _a = this, target = _a.target, style = _a.style, container = _a.container;
+                    var _b = style.anchor, anchor = _b === void 0 ? { x: .5, y: .5 } : _b;
+                    var width = target.width, height = target.height, x = target.x, y = target.y, rotation = target.rotation;
+                    this.pixilayout = { width: width, height: height, x: x, y: y, rotation: rotation };
+                    var rlayout = this.transform.pixilayout2rlayout(container, anchor, this.pixilayout);
+                    this.rlayout = rlayout;
+                    this.style.left = rlayout.x;
+                    this.style.top = rlayout.y;
+                    this.style.width = rlayout.width;
+                    this.style.height = rlayout.height;
+                    this.style.rotation = rlayout.rotation;
+                };
                 return Layout;
             }());
             function layout(co) {
@@ -40094,67 +40274,75 @@
                             return instance;
                         };
                     });
+                    instance.updateLayout = function (style) {
+                        instance.layout.update(style);
+                        return instance;
+                    };
                 });
             }
 
             function border(co) {
                 co.on('update', function (_a) {
                     var instance = _a.instance, style = _a.style;
-                    var _b = style.borderWidth, borderWidth = _b === void 0 ? 0 : _b, _c = style.borderColor, borderColor = _c === void 0 ? 0x000000 : _c, _d = style.borderRadius, borderRadius = _d === void 0 ? 0 : _d;
-                    var coverRect = getCoverRect(instance);
-                    if (coverRect && ['container', 'sprite'].includes(instance.type)) {
-                        var _e = instance.layout, realScale = _e.realScale, transform = _e.transform;
-                        var width = instance.getGlobalBounds().width;
-                        var _borderWidth = transform.length(width, borderWidth) / realScale.x;
-                        var _borderRadius = transform.length(width, borderRadius);
-                        var coverX = coverRect.x, coverY = coverRect.y, coverWidth = coverRect.width, coverHeight = coverRect.height;
-                        // ---------------------------------------------------------
-                        // Deal with border
-                        if (instance._border && instance._border.name === 'border') {
-                            instance._border.destroy();
-                            instance._border = null;
-                        }
-                        if (_borderWidth > 0) {
-                            // 绘制 border
-                            var border_1 = new Graphics();
-                            var gw = coverWidth - _borderWidth;
-                            var gh = coverHeight - _borderWidth;
-                            var gx = -gw / 2;
-                            var gy = -gh / 2;
-                            border_1.lineStyle(_borderWidth, borderColor, 1);
-                            if (_borderRadius >= width / 2) {
-                                border_1.drawCircle(0, 0, gw / 2);
+                    if (!instance.layout.newStyle ||
+                        instance.layout.newStyle.borderWidth ||
+                        instance.layout.newStyle.borderRadius) {
+                        var _b = style.borderWidth, borderWidth = _b === void 0 ? 0 : _b, _c = style.borderColor, borderColor = _c === void 0 ? 0x000000 : _c, _d = style.borderRadius, borderRadius = _d === void 0 ? 0 : _d;
+                        var coverRect = getCoverRect(instance);
+                        if (coverRect && ['container', 'sprite'].includes(instance.type)) {
+                            var _e = instance.layout, realScale = _e.realScale, transform = _e.transform;
+                            var width = instance.getGlobalBounds().width;
+                            var _borderWidth = transform.length(width, borderWidth) / realScale.x;
+                            var _borderRadius = transform.length(width, borderRadius);
+                            var coverX = coverRect.x, coverY = coverRect.y, coverWidth = coverRect.width, coverHeight = coverRect.height;
+                            // ---------------------------------------------------------
+                            // Deal with border
+                            if (instance._border && instance._border.name === 'border') {
+                                instance._border.destroy();
+                                instance._border = null;
                             }
-                            else if (_borderRadius > 0) {
-                                border_1.drawRoundedRect(gx, gy, gw, gh, _borderRadius);
+                            if (_borderWidth > 0) {
+                                // 绘制 border
+                                var border_1 = new Graphics();
+                                var gw = coverWidth - _borderWidth;
+                                var gh = coverHeight - _borderWidth;
+                                var gx = -gw / 2;
+                                var gy = -gh / 2;
+                                border_1.lineStyle(_borderWidth, borderColor, 1);
+                                if (_borderRadius >= width / 2) {
+                                    border_1.drawCircle(0, 0, gw / 2);
+                                }
+                                else if (_borderRadius > 0) {
+                                    border_1.drawRoundedRect(gx, gy, gw, gh, _borderRadius);
+                                }
+                                else {
+                                    border_1.drawRect(gx, gy, gw, gh);
+                                }
+                                border_1.name = 'border';
+                                instance.addChildAt(border_1, (instance._background ? 1 : 0));
+                                instance._border = border_1;
                             }
-                            else {
-                                border_1.drawRect(gx, gy, gw, gh);
+                            // ----------------------------------------------------------
+                            // Deal with borderRadius
+                            if (instance.mask && instance.mask.name === 'border-mask') {
+                                instance.mask.destroy();
+                                instance.mask = null;
                             }
-                            border_1.name = 'border';
-                            instance.addChildAt(border_1, (instance._background ? 1 : 0));
-                            instance._border = border_1;
-                        }
-                        // ----------------------------------------------------------
-                        // Deal with borderRadius
-                        if (instance.mask && instance.mask.name === 'border-mask') {
-                            instance.mask.destroy();
-                            instance.mask = null;
-                        }
-                        if (_borderRadius && _borderRadius > 0) {
-                            // 设置 mask
-                            var mask = new Graphics();
-                            mask.beginFill(0xFFFFFF);
-                            if (_borderRadius >= width / 2) {
-                                mask.drawCircle(0, 0, coverWidth / 2);
+                            if (_borderRadius && _borderRadius > 0) {
+                                // 设置 mask
+                                var mask = new Graphics();
+                                mask.beginFill(0xFFFFFF);
+                                if (_borderRadius >= width / 2) {
+                                    mask.drawCircle(0, 0, coverWidth / 2);
+                                }
+                                else {
+                                    mask.drawRoundedRect(coverX, coverY, coverWidth, coverHeight, _borderRadius + _borderWidth / 2);
+                                }
+                                mask.endFill();
+                                mask.name = 'border-mask';
+                                instance.addChildAt(mask, 0);
+                                instance.mask = mask;
                             }
-                            else {
-                                mask.drawRoundedRect(coverX, coverY, coverWidth, coverHeight, _borderRadius + _borderWidth / 2);
-                            }
-                            mask.endFill();
-                            mask.name = 'border-mask';
-                            instance.addChildAt(mask, 0);
-                            instance.mask = mask;
                         }
                     }
                 });
@@ -42800,7 +42988,11 @@
             function backgroundColor(co) {
                 co.on('update', function (_a) {
                     var instance = _a.instance, style = _a.style;
-                    if (getValue(style, 'backgroundColor') && (['sprite', 'container'].includes(instance.type))) {
+                    if (instance.layout.newStyle &&
+                        !instance.layout.newStyle.backgroundColor)
+                        return;
+                    if (getValue(style, 'backgroundColor') &&
+                        (['sprite', 'container'].includes(instance.type))) {
                         var coverRect = getCoverRect(instance);
                         if (coverRect) {
                             var x_1 = coverRect.x, y_1 = coverRect.y, width_1 = coverRect.width, height_1 = coverRect.height;
@@ -42871,7 +43063,7 @@
                     return instance;
                 };
                 Component.prototype.createInstance = function (type, style) {
-                    var _a = style.backgroundColor, backgroundColor = _a === void 0 ? 0xffffff : _a, image = style.backgroundImage, _b = style.content, content = _b === void 0 ? '' : _b;
+                    var _a = style.backgroundColor, backgroundColor = _a === void 0 ? 0xffffff : _a, _b = style.backgroundImage, image = _b === void 0 ? this.transparentTexture : _b, _c = style.content, content = _c === void 0 ? '' : _c;
                     switch (type.toLowerCase()) {
                         case "rect": {
                             var instance = new Graphics();
@@ -42889,13 +43081,12 @@
                             return instance;
                         }
                         case "text": {
-                            return new Text(content || '');
+                            return new Text(content);
                         }
                         case "sprite":
                         case "container":
                         default: {
-                            var sprite = Sprite.from(image || this.transparentTexture);
-                            return sprite;
+                            return Sprite.from(image);
                         }
                     }
                 };
@@ -42913,42 +43104,34 @@
                 if (config) {
                     singleton = new Component(config);
                 }
-                else if (!singleton) {
-                    singleton = new Component({
-                        uiDesignWidth: window.innerWidth,
-                    });
-                }
             };
+            configComponents({
+                uiDesignWidth: window.innerWidth,
+            });
             function Sprite$1(image, style) {
                 if (style === void 0) { style = {}; }
-                configComponents();
                 return singleton.createElement('Sprite', extend$1(style, {
                     backgroundImage: image,
                 }));
             }
             function Container$1(style) {
                 if (style === void 0) { style = {}; }
-                configComponents();
                 return singleton.createElement('Container', style);
             }
             function Rect(style) {
                 if (style === void 0) { style = {}; }
-                configComponents();
                 return singleton.createElement('Rect', style);
             }
             function Text$1(content, style) {
                 if (style === void 0) { style = {}; }
-                configComponents();
                 return singleton.createElement('Text', extend$1(style, {
                     content: content,
                 }));
             }
             function Circle$1(style) {
                 if (style === void 0) { style = {}; }
-                configComponents();
                 return singleton.createElement('Circle', style);
             }
-            //# sourceMappingURL=components.es.js.map
 
             var attrRE = /([\w-]+)|['"]{1}([^'"]*)['"]{1}/g;
 
@@ -43007,11 +43190,11 @@
             var tagRE = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
 
             // re-used obj for quick lookups of components
-            var empty = Object.create ? Object.create(null) : {};
+            var empty$1 = Object.create ? Object.create(null) : {};
 
             var parse$1 = function parse(html, options) {
                 options || (options = {});
-                options.components || (options.components = empty);
+                options.components || (options.components = empty$1);
                 var result = [];
                 var current;
                 var level = -1;
@@ -43150,7 +43333,6 @@
                 }
                 return style;
             };
-            //# sourceMappingURL=utils.js.map
 
             function isPlainObject$1(object) {
                 // tslint:disable-next-line: one-variable-per-declaration
@@ -43226,7 +43408,6 @@
                 }
                 return target;
             }
-            //# sourceMappingURL=extend.js.map
 
             var ext = {};
             ['appendTo', 'append', 'before', 'after', 'insertBefore', 'insertAfter', 'remove', 'removeChild'].map(function (name) {
@@ -43238,8 +43419,14 @@
                     }
                 };
             });
+            ext['update'] = function (style) {
+                for (var i = 0; i < this.length; i++) {
+                    if (this[i].layout) {
+                        this[i].updateLayout(style);
+                    }
+                }
+            };
             query.extend(ext);
-            //# sourceMappingURL=query-extend.js.map
 
             var styles = {};
             var style = function (className, styleStr) {
@@ -43255,7 +43442,7 @@
             var createNode = function (node) {
                 var element = null;
                 if (node.type === 'tag') {
-                    var _a = node.attrs, style_1 = _a.style, image = _a.src, className = _a.className, rest = __rest(_a, ["style", "src", "className"]);
+                    var _a = node.attrs, _b = _a.style, style_1 = _b === void 0 ? {} : _b, image = _a.src, className = _a.className;
                     var classStyle = parseStyle(styles[className]);
                     var inlineStyle = parseStyle(style_1);
                     var _style = styleCamelize(extend$2(classStyle, inlineStyle));
@@ -43282,9 +43469,9 @@
                             element = Circle$1(_style);
                             break;
                     }
-                    Object.assign(element, rest);
+                    Object.assign(element, node.attrs);
                 }
-                else if (node.type === 'text') {
+                else if (node.type === 'text' && node.content.trim()) {
                     element = Text$1(node.content.trim());
                 }
                 return element;
@@ -43315,14 +43502,13 @@
                 }
                 return selector;
             }
-            //# sourceMappingURL=index.js.map
 
             var rect$1 = "dist/images/rect.jpg";
 
-            var width = window.innerWidth, height = window.innerHeight;
+            var width$1 = window.innerWidth, height$1 = window.innerHeight;
             var game = new Application({
-                width: width,
-                height: height,
+                width: width$1,
+                height: height$1,
                 backgroundColor: 0xffffff,
             });
             document.body.appendChild(game.view);
@@ -43336,10 +43522,16 @@
                 text: "\n        width: 250; \n        right: 30; \n        bottom: 30; \n        font-size: 30; \n        color: #a72461; \n        line-height: 60;\n    ",
             });
             Loader$1.shared.add('rect', rect$1).load(function (loader, resources) {
-                var $sprite = $("\n        <container className=\"container\">\n            <sprite className=\"sprite\" src=\"rect\">\u7CBE\u7075\u56FE</sprite>\n            <rect className=\"rect\" />\n            <circle className=\"circle\" />\n            <text className=\"text\">\u8FD9\u662F\u4E00\u6BB5\u6D4B\u8BD5\u6587\u5B57\u6587\u5B57\u6587\u5B57\uFF0C\u5B83\u4F1A\u81EA\u52A8\u6362\u884C\u54E6~</text>\n        </container>\n    ");
-                $sprite.appendTo(game.stage);
+                var $sprite = $("\n        <container className=\"container\">\n            <sprite className=\"sprite\" src=\"rect\">\u7CBE\u7075\u56FE</sprite>\n            <rect className=\"rect\" />\n            <circle className=\"circle\" />\n            <text className=\"text\">\u8FD9\u662F\u4E00\u6BB5\u6D4B\u8BD5\u6587\u5B57\u6587\u5B57\u6587\u5B57\uFF0C\u5B83\u4F1A\u81EA\u52A8\u6362\u884C\u54E6~</text>\n        </container>\n    ").appendTo(game.stage);
+                var $s = $('[className=sprite]');
+                $s.on('shorttap', function () {
+                    console.log('shorttap');
+                });
+                $s.update({
+                    left: 0,
+                    top: 0,
+                });
             });
-            //# sourceMappingURL=index.js.map
 
 }));
 //# sourceMappingURL=example.js.map

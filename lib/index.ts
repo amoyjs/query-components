@@ -19,7 +19,7 @@ export const style = (className: string | object, styleStr?: string) => {
 const createNode = (node: any) => {
     let element: any = null
     if (node.type === 'tag') {
-        const { style, src: image, className, ...rest } = node.attrs
+        const { style = {}, src: image, className } = node.attrs
         const classStyle = parseStyle(styles[className])
         const inlineStyle = parseStyle(style)
         
@@ -47,8 +47,8 @@ const createNode = (node: any) => {
                 element = Circle(_style)
                 break
         }
-        Object.assign(element, rest)
-    } else if (node.type === 'text') {
+        Object.assign(element, node.attrs)
+    } else if (node.type === 'text' && node.content.trim()) {
         element = Text(node.content.trim())
     }
     return element

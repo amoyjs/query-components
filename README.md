@@ -11,7 +11,6 @@ import QueryComponents, { style } from "@amoy/query-components"
 const game = new PIXI.Application()
 document.body.appendChild(game.view)
 
-
 const $ = query(game.stage)
 
 style('container', `
@@ -53,3 +52,32 @@ PIXI.Loader.shared.add('rect', rect).load((loader, resources) => {
 	`).appendTo(game.stage)
 })
 ```
+
+## 拓展方法
+
+- `$el.appendTo(container)`
+    - 添加元素到 container 容器中；
+
+- `$el.append(child)`
+    - 添加 child 元素；
+
+- `$el.insertBefore(sibling)`
+    - 添加到 sibling 元素的前方；
+
+- `$el.insertAfter(sibling)`
+    - 添加到 sibling 元素的后方；
+
+- `$el.before(sibling)`
+    - 在自身前方添加 sibling 元素；
+
+- `$el.after(sibling)`
+    - 在自身后方添加 sibling 元素；
+
+- `$el.remove()`
+    - 删除自身；
+
+- `$el.removeChild(child)`
+    - 删除 child 子元素；
+
+- `$el.update(style)`
+    - 更新元素布局；

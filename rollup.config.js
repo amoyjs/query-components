@@ -48,10 +48,15 @@ const Config = {
     output: {
         file: `${paths.dist}${fileName}.js`,
         format: env === 'es' ? 'es' : 'umd',
-        name: 'RollupTypescriptStartkit',
+        name: 'queryComponents',
         sourcemap: true,
         // 连接 livereload 
         intro: env === 'example' ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',
+        globals: {
+            '@amoy/query': 'query',
+            'pixi.js': 'PIXI'
+        },
+        exports: 'named',
     },
     external: env === 'example' ? [] : ['@amoy/query', 'pixi.js'],
     plugins: [

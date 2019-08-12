@@ -70,6 +70,14 @@ PIXI.Loader.shared.add('rect', rect).load((loader, resources) => {
             <circle className="circle" />
             <text className="text">这是一段测试文字文字文字，它会自动换行哦~</text>
         </container>
-    `)
-    $sprite.appendTo(game.stage)
+    `).appendTo(game.stage)
+
+    const $s = $('[className=sprite]')
+    $s.on('shorttap', () => {
+        console.log('shorttap')
+    })
+    $s.update({
+        left: 0,
+        top: 0,
+    })
 })
