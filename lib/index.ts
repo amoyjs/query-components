@@ -1,10 +1,12 @@
-import { Sprite, Text, Rect, Container, Circle } from '@amoy/components'
-import HTML from 'html-parse-stringify'
+import { Sprite, Text, Rect, Container, Circle, configComponents } from '@amoy/components'
+import HTMLParse from './html-parse'
 import { parseStyle, styleCamelize } from './utils'
-import { extend } from './extend'
-import './query-extend'
+import { extend as _extend } from './extend'
+import queryExtend from './query-extend'
 
 const styles = {}
+
+export { Sprite, Text, Rect, Container, Circle, configComponents, queryExtend }
 
 export const style = (className: string | object, styleStr?: string) => {
     if (typeof className === 'string') {
@@ -23,7 +25,7 @@ const createNode = (node: any) => {
         const classStyle = parseStyle(styles[className])
         const inlineStyle = parseStyle(style)
         
-        const _style = styleCamelize(extend(classStyle, inlineStyle))
+        const _style = styleCamelize(_extend(classStyle, inlineStyle))
         switch (node.name.toLowerCase()) {
             case 'sprite':
                 element = Sprite(image, _style)
@@ -68,7 +70,7 @@ const addChild = (rootTag, root) => {
 
 export default function(selector: any) {
     if (typeof selector === 'string') {
-        const ast = HTML.parse(selector)
+        const ast = HTMLParse(selector)
         if (ast && ast.length) {
             if (ast.length > 1) {
                 console.info('the root should only be a tag. more than one will be ignored.')

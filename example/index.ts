@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js"
 import query from "@amoy/query"
-import QueryComponents, { style } from "../lib"
+import QueryComponents, { style, Sprite, queryExtend } from "../lib"
 import "./main.scss"
 
 // @ts-ignore
@@ -16,6 +16,7 @@ document.body.appendChild(game.view)
 
 const $ = query(game.stage)
 query['use'](QueryComponents)
+query['extend'](queryExtend)
 
 style('container', `
     width: 600; 
@@ -75,9 +76,5 @@ PIXI.Loader.shared.add('rect', rect).load((loader, resources) => {
     const $s = $('[className=sprite]')
     $s.on('shorttap', () => {
         console.log('shorttap')
-    })
-    $s.update({
-        left: 0,
-        top: 0,
     })
 })

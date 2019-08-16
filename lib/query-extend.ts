@@ -1,5 +1,3 @@
-import query from "@amoy/query"
-
 const ext = {};
 
 ['appendTo', 'append', 'before', 'after', 'insertBefore', 'insertAfter', 'remove', 'removeChild'].map((name: string) => {
@@ -18,6 +16,6 @@ ext['update'] = function(this: any, style: any) {
             this[i].updateLayout(style)
         }
     }
-};
+}
 
-(query as any).extend(ext)
+export default ext

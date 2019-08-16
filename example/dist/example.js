@@ -38485,241 +38485,96 @@
             Application.registerPlugin(TickerPlugin);
             Application.registerPlugin(AppLoaderPlugin);
 
-            function show() {
-                for (var i = 0; i < this.length; i++) {
-                    this[i].visible = true;
-                }
-                return this;
-            }
-            function hide() {
-                for (var i = 0; i < this.length; i++) {
-                    this[i].visible = false;
-                }
-                return this;
-            }
-            function get(index) {
-                if (index) {
-                    return this[index];
-                }
-                else {
-                    var pure = [];
-                    for (var i = 0; i < this.length; i++) {
-                        pure.push(this[i]);
-                    }
-                    return pure;
-                }
-            }
-            function width(width) {
-                if (typeof width === 'number') {
-                    for (var i = 0; i < this.length; i++) {
-                        this[i].width = width;
-                    }
-                }
-                else {
-                    return this[0].width;
-                }
-            }
-            function height(height) {
-                if (typeof height === 'number') {
-                    for (var i = 0; i < this.length; i++) {
-                        this[i].height = height;
-                    }
-                }
-                else {
-                    return this[0].height;
-                }
-            }
-            function position() {
-                return {
-                    x: this[0] ? this[0].x : 0,
-                    y: this[0] ? this[0].y : 0
-                };
-            }
-            function children() {
-                return this[0] ? this[0].children : [];
-            }
-            function count() {
-                return this.length;
-            }
-            function first() {
-                return this[0];
-            }
-            function last() {
-                return this[this.length - 1];
-            }
-            function each(closure) {
-                for (var i = 0; i < this.length; i++) {
-                    closure(this[i], i);
-                }
-            }
-            function empty() {
-                for (var i = 0; i < this.length; i++) {
-                    this[i].removeChildren();
-                }
-            }
-            function parent() {
-                return this[0] ? this[0].parent : null;
-            }
-            function text() {
-                console.log('text() not support yet');
-            }
-            function css() {
-                console.log('css() not support yet');
-            }
-            function find() {
-                console.log('find() not support yet');
-            }
-            function offset() {
-                console.log('offset() not support yet');
-            }
-            function prev() {
-                console.log('prev() not support yet');
-            }
-            function next() {
-                console.log('next() not support yet');
-            }
-
-            var instance = /*#__PURE__*/Object.freeze({
-                show: show,
-                hide: hide,
-                get: get,
-                width: width,
-                height: height,
-                position: position,
-                children: children,
-                count: count,
-                first: first,
-                last: last,
-                each: each,
-                empty: empty,
-                parent: parent,
-                text: text,
-                css: css,
-                find: find,
-                offset: offset,
-                prev: prev,
-                next: next
-            });
-
-            var fns = [];
-            function use(fn) {
-                fns.push(fn);
-            }
-
-            function extend(target) {
-                var _this = this;
-                if (target === void 0) { target = []; }
-                if (Array.isArray(target)) {
-                    target.map(function (item) { return extend.bind(_this)(item); });
-                }
-                else if (typeof target === 'object') {
-                    Object.assign(this.prototype, target);
-                }
-                else {
-                    console.error("query extension's type must be \"object\" or \"object[]\"");
-                }
-            }
-
-            function sprite(target) {
-                return typeof target._anchor !== 'undefined' && typeof target._font === 'undefined';
-            }
-            function text$1(target) {
-                return typeof target._font === 'string';
-            }
-            function container(target) {
-                return typeof target.anchor === 'undefined';
-            }
-
-            var is = /*#__PURE__*/Object.freeze({
-                sprite: sprite,
-                text: text$1,
-                container: container
-            });
-
-            function createQuery(stage, query) {
-                return function (selector) {
-                    var com = [];
-                    // @ts-ignore
-                    var any = fns.reduce(function (prev, current) { return current(prev, query); }, selector);
-                    var type = typeof any;
-                    switch (type) {
-                        case 'string':
-                            selector = any.trim();
-                            if (['container', 'sprite', 'text'].includes(selector)) {
-                                com.push.apply(com, getTypedItem(selector, get$1(stage)));
-                            }
-                            else {
-                                var parsed = parseStringQuery(selector);
-                                parsed.map(function (item) { return com.push.apply(com, findBy(item.key, item.value, get$1(stage))); });
-                            }
-                            break;
-                        case 'object':
-                            com.push(any);
-                            break;
-                        default:
-                            break;
-                    }
-                    return Object.assign(com, query.prototype);
-                };
-            }
-            var REG_PROP = /\[(.*)\=(.*)\]/; // 匹配 `[${key}=${value}]` 形式字符串
-            function parseStringQuery(query) {
-                if (query === void 0) { query = ''; }
-                var result = [];
-                query.split(',').map(function (query) {
-                    query = query.trim();
-                    if (query.startsWith('.')) {
-                        result.push({
-                            key: 'name',
-                            value: query.slice(1)
-                        });
-                    }
-                    if (REG_PROP.test(query)) {
-                        var _a = parsePropQuery(query), key = _a[0], value = _a[1];
-                        result.push({
-                            key: key,
-                            value: value
-                        });
-                    }
+            function type(object) {
+                var class2type = {};
+                var type = class2type.toString.call(object);
+                var typeString = 'Boolean Number String Function Array Date RegExp Object Error Symbol';
+                if (object == null)
+                    return object + '';
+                typeString.split(' ').forEach(function (type) {
+                    class2type["[object " + type + "]"] = type.toLowerCase();
                 });
-                return result;
+                var isObject = typeof object === 'object';
+                var isFn = typeof object === 'function';
+                return isObject || isFn ? class2type[type] || 'object' : typeof object;
             }
-            function getTypedItem(type, source) {
-                return source.filter(function (item) { return is[type](item); });
+            function isPlainObject(object) {
+                var class2type = {};
+                var toString = class2type.toString;
+                var hasOwn = class2type.hasOwnProperty;
+                var fnToString = hasOwn.toString;
+                var ObjectFunctionString = fnToString.call(Object);
+                var prototype, ctor;
+                if (!object || toString.call(object) !== '[object Object]') {
+                    return false;
+                }
+                prototype = Object.getPrototypeOf(object);
+                if (!prototype)
+                    return true;
+                ctor = hasOwn.call(prototype, 'constructor') && prototype.constructor;
+                return typeof ctor === 'function' && fnToString.call(ctor) === ObjectFunctionString;
             }
-            function parsePropQuery(string) {
-                var _a = string.match(REG_PROP), _ = _a[0], key = _a[1], value = _a[2];
-                return [key, value];
-            }
-            function get$1(object) {
-                var result = [];
-                var walk = function (object) {
-                    if (object.children.length > 0) {
-                        result.push.apply(result, object.children);
-                        object.children.map(function (child) { return walk(child); });
+            function extend() {
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                var options, name, clone, copy, source, copyIsArray, target = arguments[0] || {}, i = 1, length = arguments.length, deep = false;
+                if (typeof target === 'boolean') {
+                    deep = target;
+                    target = arguments[i] || {};
+                    i++;
+                }
+                if (typeof target !== 'object' && type(target) !== 'function') {
+                    target = {};
+                }
+                if (i === length) {
+                    target = this;
+                    i--;
+                }
+                for (; i < length; i++) {
+                    //
+                    if ((options = arguments[i]) !== null) {
+                        // for in source object
+                        for (name in options) {
+                            source = target[name];
+                            copy = options[name];
+                            if (target == copy) {
+                                continue;
+                            }
+                            // deep clone
+                            if (deep && copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
+                                // if copy is array
+                                if (copyIsArray) {
+                                    copyIsArray = false;
+                                    // if is not array, set it to array
+                                    clone = source && Array.isArray(source) ? source : [];
+                                }
+                                else {
+                                    // if copy is not a object, set it to object
+                                    clone = source && isPlainObject(source) ? source : {};
+                                }
+                                target[name] = extend(deep, clone, copy);
+                            }
+                            else if (copy !== undefined) {
+                                target[name] = copy;
+                            }
+                        }
                     }
-                };
-                walk(object);
-                return result;
-            }
-            function findBy(key, value, array) {
-                return array.filter(function (item) { return item[key] === value; });
+                }
+                return target;
             }
 
-            var commonjsGlobal$2 = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global$1 !== 'undefined' ? global$1 : typeof self !== 'undefined' ? self : {};
+            var common_es = /*#__PURE__*/Object.freeze({
+                        extend: extend,
+                        isPlainObject: isPlainObject,
+                        type: type
+            });
 
-            function unwrapExports$1 (x) {
-            	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-            }
-
-            function createCommonjsModule$1(fn, module) {
-            	return module = { exports: {} }, fn(module, module.exports), module.exports;
-            }
-
-            var queryEvent = createCommonjsModule$1(function (module, exports) {
+            var queryEvent = createCommonjsModule(function (module, exports) {
             (function (global, factory) {
-                 factory(exports) ;
-            }(commonjsGlobal$2, function (exports) {
+                factory(exports, common_es);
+            }(commonjsGlobal, function (exports, common) {
                 var EventBus = /** @class */ (function () {
                     function EventBus() {
                         this.handlers = [];
@@ -38755,22 +38610,8 @@
                     return EventBus;
                 }());
 
-                function type(object) {
-                    var class2type = {};
-                    var type = class2type.toString.call(object);
-                    var typeString = 'Boolean Number String Function Array Date RegExp Object Error Symbol';
-                    if (object == null)
-                        return object + '';
-                    typeString.split(' ').forEach(function (type) {
-                        class2type["[object " + type + "]"] = type.toLowerCase();
-                    });
-                    var isObject = typeof object === 'object';
-                    var isFn = typeof object === 'function';
-                    return isObject || isFn ? class2type[type] || 'object' : typeof object;
-                }
-
                 var get = function (root, get) {
-                    if (type(root) !== 'object')
+                    if (common.type(root) !== 'object')
                         return root;
                     var value = root;
                     var keyArr = get.split('.');
@@ -39126,6 +38967,26 @@
                     }
                 }
                 var event = {
+                    /**
+                     * on
+                     *
+                     * event(s) binding
+                     *
+                     * @module query
+                     *
+                     * @param { String } name - event name
+                     * @param { Function } closure - event callback
+                     *
+                     * @example
+                     *
+                     * $(sprite).on('tap', () => {
+                     *     console.log('tapped')
+                     * })
+                     * // bind two events meanwhile
+                     * $(sprite).on('tap longtap', () => {
+                     *     console.log('tap longtap')
+                     * })
+                     */
                     on: function (name, closure) {
                         if (name === void 0) { name = ''; }
                         if (closure === void 0) { closure = function () { }; }
@@ -39138,6 +38999,21 @@
                         }
                         return this;
                     },
+                    /**
+                     * off
+                     *
+                     * event(s) unbinding
+                     *
+                     * @module query
+                     *
+                     * @param { String } name - event(s) name
+                     *
+                     * @example
+                     *
+                     * $(sprite).on('tap')
+                     * // unbind two events meanwhile
+                     * $(sprite).on('tap longtap')
+                     */
                     off: function (name) {
                         if (name === void 0) { name = ''; }
                         var events = name.split(' ');
@@ -39163,12 +39039,447 @@
 
             });
 
-            var queryEvent$1 = unwrapExports$1(queryEvent);
+            var queryEvent$1 = unwrapExports(queryEvent);
 
+            /**
+             * show
+             *
+             * show the selected item
+             *
+             * @module query/show
+             *
+             * @example
+             *
+             * $('text').show()
+             */
+            function show() {
+                for (var i = 0; i < this.length; i++) {
+                    this[i].visible = true;
+                }
+                return this;
+            }
+            /**
+             * hide
+             *
+             * hide the selected item
+             *
+             * @module query/hide
+             *
+             * @example
+             *
+             * $('text').hide()
+             */
+            function hide() {
+                for (var i = 0; i < this.length; i++) {
+                    this[i].visible = false;
+                }
+                return this;
+            }
+            /**
+             * get
+             *
+             * get item by index or get a collection for selected items
+             *
+             * @module query/get
+             *
+             * @param index
+             *
+             * @example
+             *
+             * $('text').get()
+             * // or
+             * $('text').get(0)
+             */
+            function get(index) {
+                if (index) {
+                    return this[index];
+                }
+                else {
+                    var pure = [];
+                    for (var i = 0; i < this.length; i++) {
+                        pure.push(this[i]);
+                    }
+                    return pure;
+                }
+            }
+            /**
+             * width
+             *
+             * if param `width` is type of number,
+             * `width()` will set selected items' width property
+             * else return the first selected item's width value
+             *
+             * @module query/width
+             *
+             * @param { Number } width
+             *
+             * @example
+             *
+             * $('text').width()
+             */
+            function width(width) {
+                if (typeof width === 'number') {
+                    for (var i = 0; i < this.length; i++) {
+                        this[i].width = width;
+                    }
+                }
+                else {
+                    return this[0].width;
+                }
+            }
+            /**
+             * height
+             *
+             * if param `height` is type of number,
+             * `height()` will set selected items' height property
+             * else return the first selected item's height value
+             *
+             * @module query/height
+             *
+             * @param { Number } height
+             *
+             * @example
+             *
+             * $('text').height()
+             */
+            function height(height) {
+                if (typeof height === 'number') {
+                    for (var i = 0; i < this.length; i++) {
+                        this[i].height = height;
+                    }
+                }
+                else {
+                    return this[0].height;
+                }
+            }
+            /**
+             * position
+             *
+             * return the first selected item's coordanites
+             *
+             * @module query/position
+             *
+             * @example
+             *
+             * $('text').position()
+             */
+            function position() {
+                return {
+                    x: this[0] ? this[0].x : 0,
+                    y: this[0] ? this[0].y : 0
+                };
+            }
+            /**
+             * children
+             *
+             * return the first selected item's children
+             *
+             * @module query/children
+             *
+             * @example
+             *
+             * $('text').children()
+             */
+            function children() {
+                return this[0] ? this[0].children : [];
+            }
+            /**
+             * count
+             *
+             * return the selected items' count
+             *
+             * @module query/count
+             *
+             * @example
+             *
+             * $('text').count()
+             */
+            function count() {
+                return this.length;
+            }
+            /**
+             * first
+             *
+             * return the first selected item
+             *
+             * @module query/first
+             *
+             * @example
+             *
+             * $('text').first()
+             *
+             * @example
+             *
+             * $('text').first()
+             */
+            function first() {
+                return this[0];
+            }
+            /**
+             * last
+             *
+             * return the last selected item
+             *
+             * @module query/last
+             *
+             * @example
+             *
+             * $('text').last()
+             */
+            function last() {
+                return this[this.length - 1];
+            }
+            /**
+             * each
+             *
+             * @module query/each
+             *
+             * @param { Function } closure - executeable functoin
+             *
+             * @example
+             *
+             * $('text').each(item => {
+             *     $(item).hide()
+             * })
+             */
+            function each(closure) {
+                for (var i = 0; i < this.length; i++) {
+                    closure(this[i], i);
+                }
+            }
+            /**
+             * empty
+             *
+             * remove the selected items' children
+             *
+             * @module query/empty
+             *
+             * @example
+             *
+             * $('text').empty()
+             */
+            function empty() {
+                for (var i = 0; i < this.length; i++) {
+                    this[i].removeChildren();
+                }
+            }
+            /**
+             * parent
+             *
+             * if the first selected item's parent exist, return it, else return `null`
+             *
+             * @module query/parent
+             *
+             * @example
+             *
+             * $('text').parent()
+             */
+            function parent() {
+                return this[0] ? this[0].parent : null;
+            }
+            function text() {
+                console.log('text() not support yet');
+                return this[0] && this[0]._text && this[0]._text;
+            }
+            function css() {
+                console.log('css() not support yet');
+            }
+            function find() {
+                console.log('find() not support yet');
+            }
+            function offset() {
+                console.log('offset() not support yet');
+            }
+            function prev() {
+                console.log('prev() not support yet');
+            }
+            function next() {
+                console.log('next() not support yet');
+            }
+
+            var instance = /*#__PURE__*/Object.freeze({
+                show: show,
+                hide: hide,
+                get: get,
+                width: width,
+                height: height,
+                position: position,
+                children: children,
+                count: count,
+                first: first,
+                last: last,
+                each: each,
+                empty: empty,
+                parent: parent,
+                text: text,
+                css: css,
+                find: find,
+                offset: offset,
+                prev: prev,
+                next: next
+            });
+
+            var fns = [];
+            function use(fn) {
+                fns.push(fn);
+            }
+
+            /**
+             * extend
+             *
+             * query extend method
+             *
+             * @module query/extend
+             *
+             * @param { Object | Array } target - extend target
+             *
+             * @example
+             *
+             * import query from '@amoy/query'
+             *
+             * query.extend({
+             *     hide() {
+             *         for (let i = 0; i < this.length; i++) {
+             *             // hide all the selected items
+             *             this[i].visible = false
+             *         }
+             *     },
+             * })
+             *
+             * $('some query').hide()
+             */
+            function extend$1(target) {
+                var _this = this;
+                if (target === void 0) { target = []; }
+                if (Array.isArray(target)) {
+                    target.map(function (item) { return extend$1.bind(_this)(item); });
+                }
+                else if (typeof target === 'object') {
+                    Object.assign(this.prototype, target);
+                }
+                else {
+                    console.error("query extension's type must be \"object\" or \"object[]\"");
+                }
+            }
+
+            function sprite(target) {
+                return typeof target._anchor !== 'undefined' && typeof target._font === 'undefined';
+            }
+            function text$1(target) {
+                return typeof target._font === 'string';
+            }
+            function container(target) {
+                return typeof target.anchor === 'undefined';
+            }
+
+            var is = /*#__PURE__*/Object.freeze({
+                sprite: sprite,
+                text: text$1,
+                container: container
+            });
+
+            function createQuery(stage, query) {
+                return function (selector) {
+                    var com = [];
+                    // @ts-ignore
+                    var any = fns.reduce(function (prev, current) { return current(prev, query); }, selector);
+                    var type = typeof any;
+                    switch (type) {
+                        case 'string':
+                            selector = any.trim();
+                            if (['container', 'sprite', 'text'].includes(selector)) {
+                                com.push.apply(com, getTypedItem(selector, get$1(stage)));
+                            }
+                            else {
+                                var parsed = parseStringQuery(selector);
+                                parsed.map(function (item) { return com.push.apply(com, findBy(item.key, item.value, get$1(stage))); });
+                            }
+                            break;
+                        case 'object':
+                            com.push(any);
+                            break;
+                        default:
+                            break;
+                    }
+                    return Object.assign(com, query.prototype);
+                };
+            }
+            var REG_PROP = /\[(.*)\=(.*)\]/; // 匹配 `[${key}=${value}]` 形式字符串
+            function parseStringQuery(query) {
+                if (query === void 0) { query = ''; }
+                var result = [];
+                query.split(',').map(function (query) {
+                    query = query.trim();
+                    var selectTypes = {
+                        '#': 'id',
+                        '.': 'className'
+                    };
+                    for (var key in selectTypes) {
+                        if (query.startsWith(key)) {
+                            result.push({
+                                key: selectTypes[key],
+                                value: query.slice(1)
+                            });
+                        }
+                    }
+                    if (REG_PROP.test(query)) {
+                        var _a = parsePropQuery(query), key = _a[0], value = _a[1];
+                        result.push({
+                            key: key,
+                            value: value
+                        });
+                    }
+                });
+                return result;
+            }
+            function getTypedItem(type, source) {
+                return source.filter(function (item) { return is[type](item); });
+            }
+            function parsePropQuery(string) {
+                var _a = string.match(REG_PROP), _ = _a[0], key = _a[1], value = _a[2];
+                return [key, value];
+            }
+            function get$1(object) {
+                var result = [];
+                var walk = function (object) {
+                    if (object.children.length > 0) {
+                        result.push.apply(result, object.children);
+                        object.children.map(function (child) { return walk(child); });
+                    }
+                };
+                walk(object);
+                return result;
+            }
+            function findBy(key, value, array) {
+                return array.filter(function (item) { return item[key] === value; });
+            }
+
+            /**
+             * query
+             *
+             * @module query/query
+             *
+             * @param { Object } stage - PIXI stage
+             *
+             * @example
+             *
+             * import { Application as Game } from 'pixi.js'
+             *
+             * const game = new Game({
+             *     width: window.innerWidth,
+             *     height: window.innerHeight,
+             * })
+             *
+             * query(game.stage)
+             * //then you can use as
+             * $('sprite').hide()
+             * // or
+             * $('text').on('tap', () => {})
+             */
             // @ts-ignore
             var query = function (stage) { return window.$ = createQuery(stage, query); };
             query.use = use;
-            query.extend = extend;
+            query.extend = extend$1;
             query.extend([
                 queryEvent$1,
                 instance,
@@ -39224,7 +39535,7 @@
                 return target;
             }
 
-            function isPlainObject(object) {
+            function isPlainObject$1(object) {
                 // tslint:disable-next-line: one-variable-per-declaration
                 var proto, ctor, class2type = {}, toString = class2type.toString, // Object.prototype.toString
                 hasOwn = class2type.hasOwnProperty, fnToString = hasOwn.toString, // Object.toString/Function.toString
@@ -39240,7 +39551,7 @@
                 ctor = hasOwn.call(proto, 'constructor') && proto.constructor;
                 return typeof ctor === 'function' && fnToString.call(ctor) === ObjectFunctionString;
             }
-            function extend$1() {
+            function extend$2() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
                     args[_i] = arguments[_i];
@@ -39279,15 +39590,15 @@
                                 }
                                 // deep clone
                                 // tslint:disable-next-line: no-conditional-assignment
-                                if (deep && copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
+                                if (deep && copy && (isPlainObject$1(copy) || (copyIsArray = Array.isArray(copy)))) {
                                     if (copyIsArray) {
                                         copyIsArray = false;
                                         clone = source && Array.isArray(source) ? source : [];
                                     }
                                     else {
-                                        clone = source && isPlainObject(source) ? source : {};
+                                        clone = source && isPlainObject$1(source) ? source : {};
                                     }
-                                    target[name] = extend$1(deep, clone, copy);
+                                    target[name] = extend$2(deep, clone, copy);
                                 }
                                 else if (copy !== undefined) {
                                     target[name] = copy;
@@ -39313,7 +39624,7 @@
                 };
             }
 
-            function type(object) {
+            function type$1(object) {
                 var class2type = {};
                 var type = class2type.toString.call(object);
                 var typeString = 'Boolean Number String Function Array Date RegExp Object Error Symbol';
@@ -39327,7 +39638,7 @@
                 return isObject || isFn ? class2type[type] || 'object' : typeof object;
             }
             var getValue = function (root, get) {
-                if (type(root) !== 'object')
+                if (type$1(root) !== 'object')
                     return root;
                 var value = root;
                 var keyArr = get.split('.');
@@ -39346,7 +39657,7 @@
                 return value;
             };
             var setValue = function (tar, key, value) {
-                if (type(tar) !== 'object') {
+                if (type$1(tar) !== 'object') {
                     console.error('setValue tar muse be a object!');
                 }
                 else {
@@ -39497,6 +39808,9 @@
                 });
             }
 
+            var isContainer = function (target) {
+                return target instanceof Container && !(target instanceof Sprite) && !(target instanceof Graphics);
+            };
             function transform(uiDesignRatio) {
                 if (uiDesignRatio === void 0) { uiDesignRatio = 1; }
                 function rotation(angle) {
@@ -39586,21 +39900,26 @@
                     return scale;
                 }
                 function getPixiContainerSize(container) {
-                    if (container.width > 0 && container.height > 0) {
-                        return {
-                            width: container.width,
-                            height: container.height,
-                        };
-                    }
-                    else if (container.parent) {
-                        if (container.parent instanceof Container) {
+                    if (container.parent) {
+                        if (container['isWorld']) {
+                            return {
+                                width: window.innerWidth,
+                                height: window.innerHeight,
+                            };
+                        }
+                        else if (container.width > 0 && container.height > 0) {
+                            return {
+                                width: container.width,
+                                height: container.height,
+                            };
+                        }
+                        else if (isContainer(container.parent)) {
                             return getPixiContainerSize(container.parent);
                         }
                         else {
-                            var _a = container.parent, width = _a.width, height = _a.height;
                             return {
-                                width: width,
-                                height: height,
+                                width: container.parent['width'],
+                                height: container.parent['height'],
                             };
                         }
                     }
@@ -39612,7 +39931,7 @@
                     }
                 }
                 function actualSize(target) {
-                    if (target instanceof Container) {
+                    if (isContainer(target)) {
                         return getPixiContainerSize(target);
                     }
                     else {
@@ -39957,7 +40276,7 @@
                     var _a = this, transform = _a.transform, container = _a.container;
                     var cw = container.width, ch = container.height;
                     var _b = this.style || {}, _c = _b.content, content = _c === void 0 ? '' : _c, _d = _b.fontSize, fontSize = _d === void 0 ? 20 : _d, _e = _b.lineHeight, lineHeight = _e === void 0 ? fontSize * 1.5 : _e, _f = _b.color, color = _f === void 0 ? 0x000000 : _f, rest = __rest(_b, ["content", "fontSize", "lineHeight", "color"]);
-                    var textStyle = new TextStyle(extend$1({
+                    var textStyle = new TextStyle(extend$2({
                         fontSize: transform.length(cw, fontSize),
                         breakWords: true,
                         wordWrap: true,
@@ -40007,7 +40326,7 @@
                     }
                     // 位置
                     var pos = this.transform.elementPos(size, style, container);
-                    return extend$1(size, pos);
+                    return extend$2(size, pos);
                 };
                 Layout.prototype._setLayout = function () {
                     var _a = this, target = _a.target, style = _a.style, container = _a.container;
@@ -40215,7 +40534,7 @@
                         this.updateStyle();
                     }
                     this.newStyle = newStyle;
-                    this.style = extend$1(this.style, newStyle || {});
+                    this.style = extend$2(this.style, newStyle || {});
                     if (this.container) {
                         this._setLayout();
                         var children = getValue(target, 'children');
@@ -40348,7 +40667,7 @@
                 });
             }
 
-            function createCommonjsModule$2(fn, module) {
+            function createCommonjsModule$1(fn, module) {
             	return module = { exports: {} }, fn(module, module.exports), module.exports;
             }
 
@@ -42888,7 +43207,7 @@
               }
             ];
 
-            var colornames = createCommonjsModule$2(function (module) {
+            var colornames = createCommonjsModule$1(function (module) {
             /**
              * Module dependencies
              */
@@ -43099,18 +43418,12 @@
                 return Component;
             }());
 
-            var singleton;
-            var configComponents = function (config) {
-                if (config) {
-                    singleton = new Component(config);
-                }
-            };
-            configComponents({
+            var singleton = new Component({
                 uiDesignWidth: window.innerWidth,
             });
             function Sprite$1(image, style) {
                 if (style === void 0) { style = {}; }
-                return singleton.createElement('Sprite', extend$1(style, {
+                return singleton.createElement('Sprite', extend$2(style, {
                     backgroundImage: image,
                 }));
             }
@@ -43124,7 +43437,7 @@
             }
             function Text$1(content, style) {
                 if (style === void 0) { style = {}; }
-                return singleton.createElement('Text', extend$1(style, {
+                return singleton.createElement('Text', extend$2(style, {
                     content: content,
                 }));
             }
@@ -43134,11 +43447,7 @@
             }
 
             var attrRE = /([\w-]+)|['"]{1}([^'"]*)['"]{1}/g;
-
-            // create optimized lookup object for
-            // void elements as listed here: 
-            // http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
-            var lookup = (Object.create) ? Object.create(null) : {};
+            var lookup = Object.create ? Object.create(null) : {};
             lookup.area = true;
             lookup.base = true;
             lookup.br = true;
@@ -43155,158 +43464,107 @@
             lookup.source = true;
             lookup.track = true;
             lookup.wbr = true;
-
-            var parseTag = function (tag) {
-                var i = 0;
-                var key;
-                var res = {
-                    type: 'tag',
-                    name: '',
-                    voidElement: false,
-                    attrs: {},
-                    children: []
-                };
-
-                tag.replace(attrRE, function (match) {
-                    if (i % 2) {
-                        key = match;
-                    } else {
-                        if (i === 0) {
-                            if (lookup[match] || tag.charAt(tag.length - 2) === '/') {
-                                res.voidElement = true;
-                            }
-                            res.name = match;
-                        } else {
-                            res.attrs[key] = match.replace(/['"]/g, '');
-                        }
+            function parseTag (tag) {
+              var i = 0;
+              var key;
+              var res = {
+                type: 'tag',
+                name: '',
+                voidElement: false,
+                attrs: {},
+                children: []
+              };
+              tag.replace(attrRE, function (match) {
+                if (i % 2) {
+                  key = match;
+                } else {
+                  if (i === 0) {
+                    if (lookup[match] || tag.charAt(tag.length - 2) === '/') {
+                      res.voidElement = true;
                     }
-                    i++;
-                });
 
-                return res;
-            };
+                    res.name = match;
+                  } else {
+                    res.attrs[key] = match.replace(/['"]/g, '');
+                  }
+                }
 
-            /*jshint -W030 */
+                i++;
+              });
+              return res;
+            }
+
             var tagRE = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
-
-            // re-used obj for quick lookups of components
             var empty$1 = Object.create ? Object.create(null) : {};
-
-            var parse$1 = function parse(html, options) {
-                options || (options = {});
-                options.components || (options.components = empty$1);
-                var result = [];
-                var current;
-                var level = -1;
-                var arr = [];
-                var byTag = {};
-                var inComponent = false;
-
-                html.replace(tagRE, function (tag, index) {
-                    if (inComponent) {
-                        if (tag !== ('</' + current.name + '>')) {
-                            return;
-                        } else {
-                            inComponent = false;
-                        }
-                    }
-                    var isOpen = tag.charAt(1) !== '/';
-                    var start = index + tag.length;
-                    var nextChar = html.charAt(start);
-                    var parent;
-
-                    if (isOpen) {
-                        level++;
-
-                        current = parseTag(tag);
-                        if (current.type === 'tag' && options.components[current.name]) {
-                            current.type = 'component';
-                            inComponent = true;
-                        }
-
-                        if (!current.voidElement && !inComponent && nextChar && nextChar !== '<') {
-                            current.children.push({
-                                type: 'text',
-                                content: html.slice(start, html.indexOf('<', start))
-                            });
-                        }
-
-                        byTag[current.tagName] = current;
-
-                        // if we're at root, push new base node
-                        if (level === 0) {
-                            result.push(current);
-                        }
-
-                        parent = arr[level - 1];
-
-                        if (parent) {
-                            parent.children.push(current);
-                        }
-
-                        arr[level] = current;
-                    }
-
-                    if (!isOpen || current.voidElement) {
-                        level--;
-                        if (!inComponent && nextChar !== '<' && nextChar) {
-                            // trailing text node
-                            // if we're at the root, push a base text node. otherwise add as
-                            // a child to the current node.
-                            parent = level === -1 ? result : arr[level].children;
-
-                            // calculate correct end of the content slice in case there's
-                            // no tag after the text node.
-                            var end = html.indexOf('<', start);
-                            var content = html.slice(start, end === -1 ? undefined : end);
-                            // if a node is nothing but whitespace, no need to add it.
-                            if (!/^\s*$/.test(content)) {
-                                parent.push({
-                                    type: 'text',
-                                    content: content
-                                });
-                            }
-                        }
-                    }
-                });
-
-                return result;
-            };
-
-            function attrString(attrs) {
-                var buff = [];
-                for (var key in attrs) {
-                    buff.push(key + '="' + attrs[key] + '"');
+            function parse$1(html, options) {
+              options || (options = {});
+              options.components || (options.components = empty$1);
+              var result = [];
+              var current;
+              var level = -1;
+              var arr = [];
+              var byTag = {};
+              var inComponent = false;
+              html.replace(tagRE, function (tag, index) {
+                if (inComponent) {
+                  if (tag !== '</' + current.name + '>') {
+                    return;
+                  } else {
+                    inComponent = false;
+                  }
                 }
-                if (!buff.length) {
-                    return '';
+
+                var isOpen = tag.charAt(1) !== '/';
+                var start = index + tag.length;
+                var nextChar = html.charAt(start);
+                var parent;
+
+                if (isOpen) {
+                  level++;
+                  current = parseTag(tag);
+
+                  if (current.type === 'tag' && options.components[current.name]) {
+                    current.type = 'component';
+                    inComponent = true;
+                  }
+
+                  if (!current.voidElement && !inComponent && nextChar && nextChar !== '<') {
+                    current.children.push({
+                      type: 'text',
+                      content: html.slice(start, html.indexOf('<', start))
+                    });
+                  }
+
+                  byTag[current.tagName] = current;
+                  if (level === 0) result.push(current);
+                  parent = arr[level - 1];
+
+                  if (parent) {
+                    parent.children.push(current);
+                  }
+
+                  arr[level] = current;
                 }
-                return ' ' + buff.join(' ');
+
+                if (!isOpen || current.voidElement) {
+                  level--;
+
+                  if (!inComponent && nextChar !== '<' && nextChar) {
+                    parent = level === -1 ? result : arr[level].children;
+                    var end = html.indexOf('<', start);
+                    var content = html.slice(start, end === -1 ? undefined : end);
+
+                    if (!/^\s*$/.test(content)) {
+                      parent.push({
+                        type: 'text',
+                        content: content
+                      });
+                    }
+                  }
+                }
+              });
+              return result;
             }
-
-            function stringify(buff, doc) {
-                switch (doc.type) {
-                case 'text':
-                    return buff + doc.content;
-                case 'tag':
-                    buff += '<' + doc.name + (doc.attrs ? attrString(doc.attrs) : '') + (doc.voidElement ? '/>' : '>');
-                    if (doc.voidElement) {
-                        return buff;
-                    }
-                    return buff + doc.children.reduce(stringify, '') + '</' + doc.name + '>';
-                }
-            }
-
-            var stringify_1 = function (doc) {
-                return doc.reduce(function (token, rootEl) {
-                    return token + stringify('', rootEl);
-                }, '');
-            };
-
-            var htmlParseStringify = {
-                parse: parse$1,
-                stringify: stringify_1
-            };
 
             var parseStyle = function (styleString) {
                 var params = {};
@@ -43334,7 +43592,7 @@
                 return style;
             };
 
-            function isPlainObject$1(object) {
+            function isPlainObject$2(object) {
                 // tslint:disable-next-line: one-variable-per-declaration
                 var proto, ctor, class2type = {}, toString = class2type.toString, // Object.prototype.toString
                 hasOwn = class2type.hasOwnProperty, fnToString = hasOwn.toString, // Object.toString/Function.toString
@@ -43350,7 +43608,7 @@
                 ctor = hasOwn.call(proto, 'constructor') && proto.constructor;
                 return typeof ctor === 'function' && fnToString.call(ctor) === ObjectFunctionString;
             }
-            function extend$2() {
+            function extend$3() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
                     args[_i] = arguments[_i];
@@ -43389,15 +43647,15 @@
                                 }
                                 // deep clone
                                 // tslint:disable-next-line: no-conditional-assignment
-                                if (deep && copy && (isPlainObject$1(copy) || (copyIsArray = Array.isArray(copy)))) {
+                                if (deep && copy && (isPlainObject$2(copy) || (copyIsArray = Array.isArray(copy)))) {
                                     if (copyIsArray) {
                                         copyIsArray = false;
                                         clone = source && Array.isArray(source) ? source : [];
                                     }
                                     else {
-                                        clone = source && isPlainObject$1(source) ? source : {};
+                                        clone = source && isPlainObject$2(source) ? source : {};
                                     }
-                                    target[name] = extend$2(deep, clone, copy);
+                                    target[name] = extend$3(deep, clone, copy);
                                 }
                                 else if (copy !== undefined) {
                                     target[name] = copy;
@@ -43426,7 +43684,6 @@
                     }
                 }
             };
-            query.extend(ext);
 
             var styles = {};
             var style = function (className, styleStr) {
@@ -43445,7 +43702,7 @@
                     var _a = node.attrs, _b = _a.style, style_1 = _b === void 0 ? {} : _b, image = _a.src, className = _a.className;
                     var classStyle = parseStyle(styles[className]);
                     var inlineStyle = parseStyle(style_1);
-                    var _style = styleCamelize(extend$2(classStyle, inlineStyle));
+                    var _style = styleCamelize(extend$3(classStyle, inlineStyle));
                     switch (node.name.toLowerCase()) {
                         case 'sprite':
                             element = Sprite$1(image, _style);
@@ -43489,7 +43746,7 @@
             };
             function QueryComponents (selector) {
                 if (typeof selector === 'string') {
-                    var ast = htmlParseStringify.parse(selector);
+                    var ast = parse$1(selector);
                     if (ast && ast.length) {
                         if (ast.length > 1) {
                             console.info('the root should only be a tag. more than one will be ignored.');
@@ -43514,6 +43771,7 @@
             document.body.appendChild(game.view);
             var $ = query(game.stage);
             query['use'](QueryComponents);
+            query['extend'](ext);
             style('container', "\n    width: 600; \n    height: 600;\n    center-x: 0; \n    center-y: 0; \n    borderWidth: 2;\n");
             style({
                 sprite: "\n        width: 250; \n        height: 250; \n        left: 30; \n        top: 30;\n        text-align: center;\n        font-size: 50px;\n    ",
@@ -43526,10 +43784,6 @@
                 var $s = $('[className=sprite]');
                 $s.on('shorttap', function () {
                     console.log('shorttap');
-                });
-                $s.update({
-                    left: 0,
-                    top: 0,
                 });
             });
 
